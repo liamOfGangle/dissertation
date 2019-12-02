@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+	<!-- Box geometry macro -->
+	<xacro:macro name="box_geometry" params="name l d w XYZ RPY">
+		<visual name="${name}_visual">
+			<geometry>	
+				<box size="${d} ${w} ${l}"/>
+			</geometry>
+			<origin xyz="${XYZ}" rpy="${RPY}"/>
+		</visual>
+		<collision name="${name}_collision}">
+			<geometry>
+				<box size="${d} ${w} ${l}"/>
+			</geometry>
+			<origin xyz="${XYZ}" rpy="${RPY}"/>
+		</collision>	
+	</xacro:macro>
+
+	<!-- Cuboid geometry macro -->
+	<xacro:macro name="cylinder_geometry" params="name l r XYZ RPY">
+		<visual name="${name}_visual">
+			<geometry>
+				<cylinder length="${l}" radius="${r}"/>
+			</geometry>
+			<origin xyz="${XYZ}" rpy="${RPY}"/>
+		</visual>
+		<collision name="${name}_collision">
+			<geometry>
+				<cylinder length="${l}" radius="${r}"/>
+			</geometry>
+			<origin xyz="${XYZ}" rpy="${RPY}"/>
+		</collision>
+	</xacro:macro>
+
+	<!-- Cuboid inertial macro -->	
+	<xacro:macro name="box_inertial" params="m l d w">
+		<inertial>
+			<mass value="${m}"/>
+			<inertia ixx="${(1/12)*m*((l*l) + (d*d))}"
+					 iyy="${(1/12)*m*((w*w) + (d*d))}"
+					 izz="${(1/12)*m*((l*l) + (w*w))}"
+					 ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</xacro:macro>
+
+	<!-- Cylinder inertial macro -->
+	<xacro:macro name="cylinder_inertial" params="m l r">
+		<inertial>
+			<mass value="${m}"/>
+			<inertia ixx="${(1/12)*m*(3*(r*r) + (l*l))}"
+					 iyy="${(1/12)*m*(3*(r*r) + (l*l))}"
+					 izz="${(1/2)*m*r*r}"
+					 ixy="0" ixz="0" iyz="0"/>
+		</inertial>
+	</xacro:macro>
+
+	<!-- Joint limits macro -->
+	<xacro:macro name="joint_limits" params="upper lower">
+		<limit upper="${upper*(pi/180)}" lower="${lower*(pi/180)}" effort="30" velocity="1.0"/>
+	</xacro:macro>
+</robot>
