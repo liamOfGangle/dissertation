@@ -3,7 +3,7 @@
 	<!-- Totals -->
 	<xacro:property name="m_total" value="9.5"/>
 	<xacro:property name="l_total" value="0.883"/>
-	<xacro:property name="pi" value="3.1415926535"/>
+	<!--<xacro:property name="pi" value="3.1415926535"/>-->
 
 	<!-- Link 1 variables -->
 	<xacro:property name="l1_l" value="0.187"/>
