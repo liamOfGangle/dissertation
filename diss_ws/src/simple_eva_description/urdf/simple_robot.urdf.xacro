@@ -5,7 +5,7 @@
 	
 	<!-- 1st link -->
 	<link name="link1">
-		<pose>0 0 0 0 0 0</pose>
+		<pose>0 0 ${l1_l/2} 0 0 0</pose>
 		<xacro:box_inertial m="${m_total*(l1_l/l_total)}" l="${l1_l}" d="${l1_d}" w="${l1_w}"/>
 		<xacro:box_geometry name="link1" l="${l1_l}" d="${l1_d}" w="${l1_w}" XYZ="0 0 0" RPY="0 0 0"/>
 	</link>
@@ -88,19 +88,5 @@
 		<pose>0 0 0 0 0 0</pose>
 		<xacro:box_inertial m="${m_total*(l6_l/l_total)}" l="${l6_l}" d="${l6_d}" w="${l6_w}"/>
 		<xacro:box_geometry name="link6" l="${l6_l}" d="${l6_d}" w="${l6_w}" XYZ="0 0 ${l6_l/2}" RPY="0 0 0"/>
-	</link>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	</link>	
 </robot>
