@@ -33,8 +33,9 @@
 	</xacro:macro>
 
 	<!-- Cuboid inertial macro -->	
-	<xacro:macro name="box_inertial" params="m l d w">
+	<xacro:macro name="box_inertial" params="m l d w XYZ RPY">
 		<inertial>
+			<origin xyz="${XYZ}" rpy="${RPY}"/>
 			<mass value="${m}"/>
 			<inertia ixx="${(1/12)*m*((l*l) + (d*d))}"
 					 iyy="${(1/12)*m*((w*w) + (d*d))}"
@@ -44,8 +45,9 @@
 	</xacro:macro>
 
 	<!-- Cylinder inertial macro -->
-	<xacro:macro name="cylinder_inertial" params="m l r">
+	<xacro:macro name="cylinder_inertial" params="m l r XYZ RPY">
 		<inertial>
+			<origin xyz="${XYZ}" rpy="${RPY}"/>
 			<mass value="${m}"/>
 			<inertia ixx="${(1/12)*m*(3*(r*r) + (l*l))}"
 					 iyy="${(1/12)*m*(3*(r*r) + (l*l))}"
