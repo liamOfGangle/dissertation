@@ -5,9 +5,8 @@
 	
 	<!-- 1st link -->
 	<link name="link1">
-		<pose>0 0 ${l1_l/2} 0 0 0</pose>
-		<xacro:box_inertial m="${m_total*(l1_l/l_total)}" l="${l1_l}" d="${l1_d}" w="${l1_w}" XYZ="0 0 0" RPY="0 0 0"/>
-		<xacro:box_geometry name="link1" l="${l1_l}" d="${l1_d}" w="${l1_w}" XYZ="0 0 0" RPY="0 0 0"/>
+		<xacro:box_inertial m="${m_total*(l1_l/l_total)}" l="${l1_l}" d="${l1_d}" w="${l1_w}"/>
+		<xacro:box_geometry name="link1" l="${l1_l}" d="${l1_d}" w="${l1_w}" XYZ="0 0 ${l1_l/2}" RPY="0 0 0"/>
 	</link>
 	
 	<!-- 1st joint --> 
@@ -16,13 +15,12 @@
 		<child link="link2"/>
 		<xacro:joint_limits upper="179" lower="-179"/>
 		<axis xyz="0 0 1"/>
-		<origin xyz="0 0 ${l1_l/2}" rpy="0 0 0"/>
+		<origin xyz="0 0 ${l1_l}" rpy="0 0 0"/>
 	</joint>
 	
 	<!-- 2nd link -->
 	<link name="link2">
-		<pose>0 0 0 0 0 0</pose>
-		<xacro:cylinder_inertial m="${m_total*(l2_l/l_total)}" l="${l2_l}" r="${l2_r}" XYZ="0 0 0" RPY="0 0 0"/>
+		<xacro:cylinder_inertial m="${m_total*(l2_l/l_total)}" l="${l2_l}" r="${l2_r}"/>
 		<xacro:cylinder_geometry name="link2" l="${l2_l}" r="${l2_r}" XYZ="0 ${l2_r} ${l2_l/2}" RPY="0 0 0"/>
 	</link>
 	
@@ -37,8 +35,7 @@
 	
 	<!-- 3rd link -->
 	<link name="link3">
-		<pose>0 0 0 0 0 0</pose>
-		<xacro:cylinder_inertial m="${m_total*(l3_l/l_total)}" l="${l3_l}" r="${l3_r}" XYZ="0 0 0" RPY="0 0 0"/>
+		<xacro:cylinder_inertial m="${m_total*(l3_l/l_total)}" l="${l3_l}" r="${l3_r}"/>
 		<xacro:cylinder_geometry name="link3" l="${l3_l}" r="${l3_r}" XYZ="0 ${-1*l3_r} ${l2_l}" RPY="0 0 0"/>
 	</link>
 	
@@ -53,8 +50,7 @@
 	
 	<!-- 4th link -->
 	<link name="link4">
-		<pose>0 0 0 0 0 0</pose>
-		<xacro:cylinder_inertial m="${m_total*(l4_l/l_total)}" l="${l4_l}" r="${l4_r}" XYZ="0 0 0" RPY="0 0 0"/>
+		<xacro:cylinder_inertial m="${m_total*(l4_l/l_total)}" l="${l4_l}" r="${l4_r}"/>
 		<xacro:cylinder_geometry name="link4" l="${l4_l}" r="${l4_r}" XYZ="0 ${l4_r} ${l4_l/2}" RPY="0 0 0"/>
 	</link>
 	
@@ -69,8 +65,7 @@
 	
 	<!-- 5th link -->
 	<link name="link5">
-		<pose>0 0 0 0 0 0</pose>
-		<xacro:cylinder_inertial m="${m_total*(l5_l/l_total)}" l="${l5_l}" r="${l5_r}" XYZ="0 0 0" RPY="0 0 0"/>
+		<xacro:cylinder_inertial m="${m_total*(l5_l/l_total)}" l="${l5_l}" r="${l5_r}"/>
 		<xacro:cylinder_geometry name="link5" l="${l5_l}" r="${l4_r}" XYZ="0 0 ${l5_l/2}" RPY="0 0 0"/>
 	</link>
 	
@@ -85,8 +80,7 @@
 	
 	<!-- 6th link -->
 	<link name="link6">
-		<pose>0 0 0 0 0 0</pose>
-		<xacro:box_inertial m="${m_total*(l6_l/l_total)}" l="${l6_l}" d="${l6_d}" w="${l6_w}" XYZ="0 0 0" RPY="0 0 0"/>
+		<xacro:box_inertial m="${m_total*(l6_l/l_total)}" l="${l6_l}" d="${l6_d}" w="${l6_w}"/>
 		<xacro:box_geometry name="link6" l="${l6_l}" d="${l6_d}" w="${l6_w}" XYZ="0 0 ${l6_l/2}" RPY="0 0 0"/>
 	</link>	
 	
@@ -96,6 +90,5 @@
 	<joint name="fixed" type="fixed">
 		<parent link="world"/>
 		<child link="link1"/>
-		<origin xyz="0 0 0" rpy="0 0 0"/>
 	</joint>	
 </robot>

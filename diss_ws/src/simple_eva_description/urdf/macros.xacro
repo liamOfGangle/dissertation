@@ -33,9 +33,8 @@
 	</xacro:macro>
 
 	<!-- Cuboid inertial macro -->	
-	<xacro:macro name="box_inertial" params="m l d w XYZ RPY">
+	<xacro:macro name="box_inertial" params="m l d w">
 		<inertial>
-			<origin xyz="${XYZ}" rpy="${RPY}"/>
 			<mass value="${m}"/>
 			<inertia ixx="${(1/12)*m*((l*l) + (d*d))}"
 					 iyy="${(1/12)*m*((w*w) + (d*d))}"
@@ -45,9 +44,8 @@
 	</xacro:macro>
 
 	<!-- Cylinder inertial macro -->
-	<xacro:macro name="cylinder_inertial" params="m l r XYZ RPY">
+	<xacro:macro name="cylinder_inertial" params="m l r">
 		<inertial>
-			<origin xyz="${XYZ}" rpy="${RPY}"/>
 			<mass value="${m}"/>
 			<inertia ixx="${(1/12)*m*(3*(r*r) + (l*l))}"
 					 iyy="${(1/12)*m*(3*(r*r) + (l*l))}"
@@ -58,6 +56,6 @@
 
 	<!-- Joint limits macro -->
 	<xacro:macro name="joint_limits" params="upper lower">
-		<limit upper="${upper*(pi/180)}" lower="${lower*(pi/180)}" effort="30" velocity="1.0"/>
+		<limit upper="${radians(upper)}" lower="${radians(lower)}" effort="30" velocity="1.0"/>
 	</xacro:macro>
 </robot>
