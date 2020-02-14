@@ -1,7 +1,19 @@
 <?xml version="1.0"?>
 <robot name="simple_eva" xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<!-- Import variables -->	
 	<xacro:include filename="$(find simple_eva_description)/urdf/variables.xacro"/>
+	<!-- Import macros -->
 	<xacro:include filename="$(find simple_eva_description)/urdf/macros.xacro"/>
+	<!-- Import gazebo elements -->
+	<xacro:include filename="$(find simple_eva_description)/urdf/simple_robot.gazebo"/>
+	
+	<!-- Used for fixing robot to Gazebo world -->
+	<link name="world"/>
+	
+	<joint name="fixed" type="fixed">
+		<parent link="world"/>
+		<child link="link1"/>
+	</joint>
 	
 	<!-- 1st link -->
 	<link name="link1">
@@ -82,13 +94,5 @@
 	<link name="link6">
 		<xacro:box_inertial m="${m_total*(l6_l/l_total)}" l="${l6_l}" d="${l6_d}" w="${l6_w}"/>
 		<xacro:box_geometry name="link6" l="${l6_l}" d="${l6_d}" w="${l6_w}" XYZ="0 0 ${l6_l/2}" RPY="0 0 0"/>
-	</link>	
-	
-	<!-- Used for fixing robot to Gazebo world -->
-	<link name="world"/>
-	
-	<joint name="fixed" type="fixed">
-		<parent link="world"/>
-		<child link="link1"/>
-	</joint>	
+	</link>		
 </robot>
