@@ -30,6 +30,9 @@
 		<origin xyz="0 0 ${l1_l}" rpy="0 0 0"/>
 	</joint>
 	
+	<!-- 1st transmission/actuator -->
+	<xacro:transmission_actuator nameTran="tran1" nameJoint="joint1" nameMotor="motor1" mechRed="1"/>
+		
 	<!-- 2nd link -->
 	<link name="link2">
 		<xacro:cylinder_inertial m="${m_total*(l2_l/l_total)}" l="${l2_l}" r="${l2_r}"/>
@@ -44,6 +47,9 @@
 		<axis xyz="0 1 0"/>
 		<origin xyz="0 0 ${l2_l}" rpy="0 0 0"/>
 	</joint>
+	
+	<!-- 2nd transmission/actuator -->
+	<xacro:transmission_actuator nameTran="tran2" nameJoint="joint2" nameMotor="motor2" mechRed="1"/>
 	
 	<!-- 3rd link -->
 	<link name="link3">
@@ -60,6 +66,9 @@
 		<origin xyz="0 0 ${l3_l}" rpy="0 0 0"/>
 	</joint>
 	
+	<!-- 3rd transmission/actuator -->
+	<xacro:transmission_actuator nameTran="tran3" nameJoint="joint3" nameMotor="motor3" mechRed="1"/>
+	
 	<!-- 4th link -->
 	<link name="link4">
 		<xacro:cylinder_inertial m="${m_total*(l4_l/l_total)}" l="${l4_l}" r="${l4_r}"/>
@@ -75,6 +84,9 @@
 		<origin xyz="0 0 ${l4_l}" rpy="0 0 0"/>
 	</joint>
 	
+	<!-- 4th transmission/actuator -->
+	<xacro:transmission_actuator nameTran="tran4" nameJoint="joint4" nameMotor="motor4" mechRed="1"/>
+	
 	<!-- 5th link -->
 	<link name="link5">
 		<xacro:cylinder_inertial m="${m_total*(l5_l/l_total)}" l="${l5_l}" r="${l5_r}"/>
@@ -89,6 +101,9 @@
 		<axis xyz="0 1 0"/>
 		<origin xyz="0 0 ${l5_l}" rpy="0 0 0"/>
 	</joint>
+	
+	<!-- 5th transmission/actuator -->
+	<xacro:transmission_actuator nameTran="tran5" nameJoint="joint5" nameMotor="motor5" mechRed="1"/>
 	
 	<!-- 6th link -->
 	<link name="link6">

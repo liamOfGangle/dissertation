@@ -58,4 +58,17 @@
 	<xacro:macro name="joint_limits" params="upper lower">
 		<limit upper="${radians(upper)}" lower="${radians(lower)}" effort="30" velocity="1.0"/>
 	</xacro:macro>
+	
+	<!-- Transmission macro -->
+	<xacro:macro name="transmission_actuator" params="nameTran nameJoint nameMotor mechRed">
+		<transmission name="${nameTran}">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${nameJoint}">
+				<hardwareInterface>EffortJointInterface</hardwareInterface>
+			</joint>
+			<actuator name="${nameMotor}">
+				<hardwareInterface>EffortJointInterface</hardwareInterface>
+				<mechanicalReduction>${mechRed}</mechanicalReduction>
+			</actuator>
+		</transmission>
 </robot>
